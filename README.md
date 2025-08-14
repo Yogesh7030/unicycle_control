@@ -68,9 +68,9 @@ $\omega = k_p \alpha + k_i \int \alpha \, dt + k_d \frac{d\alpha}{dt}$
 
 We linearize the **unicycle tracking error dynamics** around a nominal velocity $v_0$ in the goal-aligned frame:
 
-$\dot e_x = [0\; 0\; v_0]\begin{bmatrix} e_x \\ e_y \\ e_\theta \end{bmatrix} + [-1\; 0] \begin{bmatrix} \Delta v \\ \omega \end{bmatrix}$,  
-$\dot e_y = [0\; 0\; -v_0]\begin{bmatrix} e_x \\ e_y \\ e_\theta \end{bmatrix} + [0\; v_0] \begin{bmatrix} \Delta v \\ \omega \end{bmatrix}$,  
-$\dot e_\theta = [0\; 0\; 0]\begin{bmatrix} e_x \\ e_y \\ e_\theta \end{bmatrix} + [0\; -1] \begin{bmatrix} \Delta v \\ \omega \end{bmatrix}$.
+$\dot e_x = [0, 0, v_0] \begin{bmatrix} e_x \\ e_y \\ e_\theta \end{bmatrix} + [-1, 0] \begin{bmatrix} \Delta v \\ \omega \end{bmatrix}$,  
+$\dot e_y = [0, 0, -v_0] \begin{bmatrix} e_x \\ e_y \\ e_\theta \end{bmatrix} + [0, v_0] \begin{bmatrix} \Delta v \\ \omega \end{bmatrix}$,  
+$\dot e_\theta = [0, 0, 0] \begin{bmatrix} e_x \\ e_y \\ e_\theta \end{bmatrix} + [0, -1] \begin{bmatrix} \Delta v \\ \omega \end{bmatrix}$.
 
 Where:  
 $A_c = \begin{bmatrix} 0 & 0 & v_0 \\ 0 & 0 & -v_0 \\ 0 & 0 & 0 \end{bmatrix}$,  
@@ -81,7 +81,7 @@ $A = I + \Delta t \cdot A_c$,
 $B = \Delta t \cdot B_c$.
 
 **LQR gain $K$** by solving the Riccati equation:  
-$K = (R + B^T P B)^{-1} (B^T P A)$.
+$K = (R + B^T P B)^{-1}(B^T P A)$.
 
 **Control law:**  
 $u = -K e$, where  
