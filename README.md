@@ -73,7 +73,10 @@ $\dot e_y = [0, 0, -v_0] \begin{bmatrix} e_x \\ e_y \\ e_\theta \end{bmatrix} + 
 $\dot e_\theta = [0, 0, 0] \begin{bmatrix} e_x \\ e_y \\ e_\theta \end{bmatrix} + [0, -1] \begin{bmatrix} \Delta v \\ \omega \end{bmatrix}$.
 
 Where:  
-$A_c = \begin{bmatrix} 0 & 0 & v_0 \\ 0 & 0 & -v_0 \\ 0 & 0 & 0 \end{bmatrix}$,  
+$A_c =
+\begin{bmatrix} 0 & 0 & v_0 \end{bmatrix},
+\begin{bmatrix} 0 & 0 & -v_0 \end{bmatrix},
+\begin{bmatrix} 0 & 0 & 0 \end{bmatrix}$,  
 $B_c = \begin{bmatrix} -1 & 0 \\ 0 & v_0 \\ 0 & -1 \end{bmatrix}$.
 
 **Discrete-time form:**  
