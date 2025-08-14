@@ -31,29 +31,40 @@ $$
 
 ## 2. PID Controller
 
-We use a **heading-based PID** controller:  
-- \v is proportional to **distance to goal**  
-- \omega is computed from a PID on the **heading error**
+We use a **heading-based PID** controller:
+
+- \( v \) is proportional to **distance to goal**
+- \( \omega \) is computed from a PID on the **heading error**
+
+---
 
 **Heading error:**
 $$
-alpha = \text{wrap}(\theta_g - \theta)
-where:
-\theta_g = \arctan2(y_g - y, x_g - x)
+\alpha = \text{wrap}(\theta_g - \theta)
 $$
-**Linear velocity command:**
-\[
-v = \min(v_{\text{max}}, k_v \cdot \rho)
-\]
 where:
-\[
+$$
+\theta_g = \arctan2(y_g - y, \; x_g - x)
+$$
+
+---
+
+**Linear velocity command:**
+$$
+v = \min(v_{\text{max}},\; k_v \cdot \rho)
+$$
+where:
+$$
 \rho = \sqrt{(x_g - x)^2 + (y_g - y)^2}
-\]
+$$
+
+---
 
 **Angular velocity command:**
-\[
+$$
 \omega = k_p \alpha + k_i \int \alpha \, dt + k_d \frac{d\alpha}{dt}
-\]
+$$
+
 
 ### Parameters to Tune:
 | Variable | Meaning | Typical Range |
