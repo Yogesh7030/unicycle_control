@@ -105,10 +105,6 @@ $e_0 = \text{current error}$
 Where:  
 - At each step, we solve for the **optimal sequence**, but apply only the **first control** (receding horizon).
 
-**Note:**  
-- No actuator constraints yet (no limits on \(\Delta v, \omega\) in solver).  
-- Adding constraints would turn this into a **constrained QP** or **nonlinear MPC**.
-
 ### Parameters to Tune:
 | Variable | Meaning |
 |----------|---------|
