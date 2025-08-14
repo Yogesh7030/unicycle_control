@@ -68,7 +68,7 @@ $\omega = k_p \alpha + k_i \int \alpha \, dt + k_d \frac{d\alpha}{dt}$
 
 We linearize the **unicycle tracking error dynamics** around a nominal velocity $v_0$ in the goal-aligned frame:
 
-**Discrete-time form:**  
+**The continuous-time system is discretized as:**  
 $A = I + \Delta t \cdot A_c$,  
 $B = \Delta t \cdot B_c$.
 
@@ -76,8 +76,7 @@ $B = \Delta t \cdot B_c$.
 $K = (R + B^T P B)^{-1}(B^T P A)$.
 
 **Control law:**  
-$u = -K e$, where  
-$u = \begin{bmatrix} \Delta v \\ \omega \end{bmatrix}$ and $v = v_0 + \Delta v$.
+$u = -K e$
 
 ### Parameters to Tune:
 | Variable | Meaning |
@@ -94,19 +93,16 @@ $u = \begin{bmatrix} \Delta v \\ \omega \end{bmatrix}$ and $v = v_0 + \Delta v$.
 
 We use the **same linearized model** as LQR, but predict over a finite horizon \(N\):
 
-\[
-\min_{U} \sum_{k=0}^{N-1} \left( e_k^T Q e_k + u_k^T R u_k \right) + e_N^T Q e_N
-\]
-subject to:
-\[
-e_{k+1} = A e_k + B u_k
-\]
-\[
-e_0 = \text{current error}
-\]
+$\min_{U} \sum_{k=0}^{N-1} \left( e_k^T Q e_k + u_k^T R u_k \right) + e_N^T Q e_N$
 
-Where:
-- \(U = [u_0, u_1, \dots, u_{N-1}]\)  
+subject to:
+
+$e_{k+1} = A e_k + B u_k$
+
+$e_0 = \text{current error}$
+
+
+Where:  
 - At each step, we solve for the **optimal sequence**, but apply only the **first control** (receding horizon).
 
 **Note:**  
