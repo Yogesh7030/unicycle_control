@@ -66,12 +66,11 @@ $\omega = k_p \alpha + k_i \int \alpha \, dt + k_d \frac{d\alpha}{dt}$
 
 ## 3. LQR Controller
 
-We linearize the **unicycle tracking error dynamics** around a nominal velocity \(v_0\) in the goal-aligned frame:
+We linearize the **unicycle tracking error dynamics** around a nominal velocity $v_0$ in the goal-aligned frame:
 
-\[
-\begin{bmatrix}
-\dot{e_x} \\[2pt]
-\dot{e_y} \\[2pt]
+$\begin{bmatrix}
+\dot{e_x} \\
+\dot{e_y} \\
 \dot{e_\theta}
 \end{bmatrix}
 =
@@ -83,51 +82,43 @@ e_x \\ e_y \\ e_\theta
 B_c
 \begin{bmatrix}
 \Delta v \\ \omega
-\end{bmatrix}
-\]
+\end{bmatrix}$
 
-Where:
-\[
-A_c =
+Where:  
+
+$A_c =
 \begin{bmatrix}
 0 & 0 & v_0 \\
 0 & 0 & -v_0 \\
 0 & 0 & 0
-\end{bmatrix}
-,\quad
+\end{bmatrix},
+\quad
 B_c =
 \begin{bmatrix}
 -1 & 0 \\
 0 & v_0 \\
 0 & -1
-\end{bmatrix}
-\]
+\end{bmatrix}$
 
-Discrete-time form:
-\[
-A = I + \Delta t \cdot A_c
-\]
-\[
-B = \Delta t \cdot B_c
-\]
+**Discrete-time form:**
 
-**LQR gain \(K\)** is found by solving the Discrete Algebraic Riccati Equation:
-\[
-K = (R + B^T P B)^{-1} (B^T P A)
-\]
+$A = I + \Delta t \cdot A_c$  
+$B = \Delta t \cdot B_c$
 
-Control law:
-\[
-u = -K e
-\]
-with:
-\[
-u = 
+**LQR gain $K$** is found by solving the Discrete Algebraic Riccati Equation:  
+
+$K = (R + B^T P B)^{-1} (B^T P A)$
+
+**Control law:**
+
+$u = -K e$  
+
+with:  
+$u = 
 \begin{bmatrix}
 \Delta v \\ \omega
-\end{bmatrix}
-\]
-and \(v = v_0 + \Delta v\).
+\end{bmatrix}$  
+and $v = v_0 + \Delta v$.
 
 ### Parameters to Tune:
 | Variable | Meaning |
