@@ -35,8 +35,8 @@ We use a **heading-based PID** controller:
 $$
 - \(v\) is proportional to **distance to goal**  
 - \(\omega\) is computed from a PID on the **heading error**
-
 $$
+
 **Heading error:**
 $$
 \[
