@@ -11,15 +11,11 @@ This repository implements a **Unicycle kinematic model** with three controllers
 
 The **unicycle kinematic equations** (pose \((x, y, \theta)\), control inputs: linear velocity \(v\) and angular velocity \(\omega\)):
 
-\[
-\dot{x} = v \cos(\theta)
-\]
-\[
-\dot{y} = v \sin(\theta)
-\]
-\[
-\dot{\theta} = \omega
-\]
+$$
+\dot{x} = v\cos\theta,\qquad
+\dot{y} = v\sin\theta,\qquad
+\dot{\theta} = \omega.
+$$
 
 Discrete-time update (Euler integration):
 
