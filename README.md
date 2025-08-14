@@ -20,9 +20,9 @@ $$
 Discrete-time update (Euler integration):
 
 $$
-\x_{k+1} = x_k + v_k \cos(\theta_k) \cdot \Delta \n
-\y_{k+1} = y_k + v_k \sin(\theta_k) \cdot \Delta \n
-\theta_{k+1} = \theta_k + \omega_k \cdot \Delta \n
+\x_{k+1} = x_k + v_k \cos(\theta_k) \cdot \Delta n\
+\y_{k+1} = y_k + v_k \sin(\theta_k) \cdot \Delta n\
+\theta_{k+1} = \theta_k + \omega_k \cdot \Delta n\
 $$
 
 ---
